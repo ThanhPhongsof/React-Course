@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./components/card/Card";
+import CardList from "./components/card/CardList";
+// import Button from "./components/button/Button";
+// import Game from "./components/tictactoe/Game";
+// import Counter from "./components/counter/Counter";
+// import Toggle from "./components/toggle/Toggle";
+// import YoutubeList from "./components/youtube/YoutubeList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <YoutubeList></YoutubeList> */}
+      {/* <Toggle></Toggle> */}
+      {/* <Counter></Counter> */}
+      {/* <Game></Game> */}
+      {/* <Button>Primary</Button>
+      <Button className="button--secondary">Secondary</Button> */}
+      <CardList>
+        <Card secondary={true}></Card>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+      </CardList>
     </div>
   );
 }
