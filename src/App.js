@@ -1,12 +1,13 @@
 import "./App.css";
 // import Card from "./components/card/Card";
-import CardList from "./components/card/CardList";
+// import CardList from "./components/card/CardList";
 import GlobalStyles from "./GlobalStyles";
 import { ThemeProvider } from "styled-components";
-import CardTailwind from "./components/card/CardTailwind";
+// import CardTailwind from "./components/card/CardTailwind";
+import Photos from "./components/photo/Photos";
 
 const theme = {
-  colors: { blue: "#2979ff", }
+  colors: { blue: "#2979ff" },
 };
 // import Button from "./components/button/Button";
 // import Game from "./components/tictactoe/Game";
@@ -18,11 +19,16 @@ function App() {
   return (
     <div>
       {/* <GlobalStyles></GlobalStyles> */}
-      <CardList>
-        <CardTailwind secondary={true}></CardTailwind>
-      </CardList>      
+      {/* <CardList>
+        <CardTailwind primary={true}></CardTailwind>
+        <CardTailwind ></CardTailwind>
+        <CardTailwind ></CardTailwind>
+        <CardTailwind ></CardTailwind>
+        <CardTailwind ></CardTailwind>
+        <CardTailwind ></CardTailwind>
+      </CardList>       */}
+      <Photos></Photos>
     </div>
-
 
     // <ThemeProvider theme={theme}>
     //   <GlobalStyles></GlobalStyles>
