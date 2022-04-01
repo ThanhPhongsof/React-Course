@@ -1,10 +1,11 @@
-import "./App.css";
+// import "./App.css";
 // import Card from "./components/card/Card";
 // import CardList from "./components/card/CardList";
-import GlobalStyles from "./GlobalStyles";
-import { ThemeProvider } from "styled-components";
+// import GlobalStyles from "./GlobalStyles";
+// import { ThemeProvider } from "styled-components";
 // import CardTailwind from "./components/card/CardTailwind";
-import Photos from "./components/photo/Photos";
+// import Photos from "./components/photo/Photos";
+import HackerNews from "./components/news/HackerNews";
 
 const theme = {
   colors: { blue: "#2979ff" },
@@ -27,7 +28,8 @@ function App() {
         <CardTailwind ></CardTailwind>
         <CardTailwind ></CardTailwind>
       </CardList>       */}
-      <Photos></Photos>
+      {/* <Photos></Photos> */}
+      <HackerNews></HackerNews>
     </div>
 
     // <ThemeProvider theme={theme}>
