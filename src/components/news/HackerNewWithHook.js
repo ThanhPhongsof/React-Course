@@ -1,50 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import useHackerNewsAPI from "../../hooks/useHackerNewsAPI";
 import lodash from "lodash";
 
 // https://hn.algolia.com/api/v1/search?query=react
 
-const HackerNews = () => {
-  const [hits, setHits] = useState([]);
+const HackerNewWithHook = () => {
   const [query, setQuery] = useState("react");
-  const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
-  const handleFetchData = useRef({});
-  const [url, setUrl] = useState(
-    `https://hn.algolia.com/api/v1/search?query=${query}`
+  const { data, setUrl, loading, errorMessage } = useHackerNewsAPI(
+    `https://hn.algolia.com/api/v1/search?query=''`,
+    { hits: [] }
   );
 
-  const isMounted = useRef(true);
-
-  useEffect(() => {
-    isMounted.current = true;
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
-
-  handleFetchData.current = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(url);
-      setTimeout(() => {
-        if (isMounted.current) {
-          setHits(response.data?.hits || []);
-          setLoading((loading) => !loading);
-        }
-      }, 3000);
-    } catch (error) {
-      setLoading((loading) => !loading);
-      setErrorMessage(`The error happend ${error}`);
-    }
-  };
   const handleUpdateQuery = lodash.debounce((e) => {
     setQuery(e.target.value);
   }, 800);
-
-  useEffect(() => {
-    handleFetchData.current();
-  }, [url]);
 
   return (
     <div className="bg-white mx-auto mt-5 mb-5 p-5 rounded-lg shadow-md w-2/4">
@@ -73,7 +42,7 @@ const HackerNews = () => {
       )}
       <div className="flex flex-wrap gap-5">
         {!loading &&
-          hits?.map((item, index) => {
+          data?.hits?.map((item, index) => {
             if (!item.title || item.title.length <= 0) return null;
             return (
               <h3 key={item.title} className="p-3 bg-gray-100 rounded-md">
@@ -86,4 +55,4 @@ const HackerNews = () => {
   );
 };
 
-export default HackerNews;
+export default HackerNewWithHook;
