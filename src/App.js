@@ -1,5 +1,6 @@
 import React from "react";
-import SignUpFormV2 from "./components/form/SignUpFormV2";
+import SignUpFormFinal from "./components/form/SignUpFormFinal";
+// import SignUpFormV2 from "./components/form/SignUpFormV2";
 // import SignUpForm from "./components/form/SignUpForm";
 // import Form from "./components/form/Form";
 import GlobalStyles from "./GlobalStyles";
@@ -11,7 +12,8 @@ const App = () => {
       <GlobalStyles></GlobalStyles>
       {/* <Form></Form> */}
       {/* <MovieSeachApp></MovieSeachApp> */}
-      <SignUpFormV2></SignUpFormV2>
+      {/* <SignUpFormV2></SignUpFormV2> */}
+      <SignUpFormFinal></SignUpFormFinal>
     </div>
   );
 };
