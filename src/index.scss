@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.intputFocus :focus-visible {
+  outline: none;
+}
+
 .skeleton {
   background-color: #eee;
   background-image: linear-gradient(
