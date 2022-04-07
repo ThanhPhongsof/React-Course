@@ -1,5 +1,6 @@
 import React from "react";
-import SignUpFormFinal from "./components/form/SignUpFormFinal";
+// import SignUpFormFinal from "./components/form/SignUpFormFinal";
+import SignUpFormReactHook from "./components/form/SignUpFormReactHook";
 // import SignUpFormV2 from "./components/form/SignUpFormV2";
 // import SignUpForm from "./components/form/SignUpForm";
 // import Form from "./components/form/Form";
@@ -13,7 +14,8 @@ const App = () => {
       {/* <Form></Form> */}
       {/* <MovieSeachApp></MovieSeachApp> */}
       {/* <SignUpFormV2></SignUpFormV2> */}
-      <SignUpFormFinal></SignUpFormFinal>
+      {/* <SignUpFormFinal></SignUpFormFinal> */}
+      <SignUpFormReactHook></SignUpFormReactHook>
     </div>
   );
 };
