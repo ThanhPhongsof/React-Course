@@ -8,6 +8,8 @@ export default function useClickOutSide(dom = "button") {
     setShow((show) => !show);
   };
 
+  console.log(show);
+
   useEffect(() => {
     function handleClickOutDropDown(e) {
       if (
