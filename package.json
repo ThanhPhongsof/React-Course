@@ -17,6 +17,7 @@
     "react-error-boundary": "^3.1.4",
     "react-hook-form": "^7.29.0",
     "react-scripts": "next",
+    "react-transition-group": "^4.4.2",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"

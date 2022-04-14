@@ -25,6 +25,17 @@
   }
 }
 
-body {
-  height: 500vh;
+.zoom-enter .content {
+  opacity: 0;
+}
+.zoom-enter-active .content {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.zoom-exit .content {
+  opacity: 1;
+}
+.zoom-exit-active .content {
+  opacity: 0;
+  transition: scale(0.5);
 }
