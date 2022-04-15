@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import ModalAdvance from "./components/modal/ModalAdvance";
 // import Modal from "./components/modal/Modal";
 import ModalBase from "./components/modal/ModalBase";
+import TooltipAdvanced from "./components/tooltip/TooltipAdvanced";
 // import Portal from "./components/portal/Portal";
 
 const App = () => {
   const [openModalBase, setOpenModalBase] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   return (
-    <div className="p-5">
+    <div className="flex items-center justify-center h-screen p-5">
       {/* <Modal open={true} handleClose={() => {}}></Modal> */}
       {/* <Portal visible={false}></Portal> */}
       <button
@@ -34,7 +35,11 @@ const App = () => {
           aspernatur facilis!
         </div>
       </ModalBase>
-      <ModalAdvance visible={openModal} onClose={() => setOpenModal(false)}>
+      <ModalAdvance
+        visible={openModal}
+        onClose={() => setOpenModal(false)}
+        bodyClassName="w-full max-w-[400px] bg-white p-10 rounded-lg"
+      >
         <div className="modal-content bg-white relative z-10 p-10 rounded-lg w-full max-w-[482px] h-full max-h-[610px]">
           <span
             className="absolute top-0 right-0 flex items-center justify-center w-10 h-10 p-1 bg-white rounded-full cursor-pointer -translate-y-2/4 translate-x-2/4"
@@ -81,6 +86,9 @@ const App = () => {
           </button>
         </div>
       </ModalAdvance>
+      <div className="inline-block ml-5">
+        <TooltipAdvanced title="Tooltip">This is a tooltip</TooltipAdvanced>
+      </div>
     </div>
   );
 };
