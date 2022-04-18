@@ -1,25 +1,26 @@
 import React from "react";
-import CardList from "./components/gallery/CardList";
-import PhotoList from "./components/gallery/PhotoList";
-import { AuthProvider } from "./contexts/authContext";
-import { GalleryProvider } from "./contexts/galleryContext";
-import HeaderMain from "./HeaderMain";
+import { Routes, Route } from "react-router-dom";
+import BlogPage from "./components/BlogPage";
+import BlogPageDetails from "./components/BlogPageDetails";
+import Nav from "./components/Nav";
+import ProfilePage from "./components/ProfilePage";
 
-// Context
-// App(status:false) -> Header -> Menu -> User -> Profile
-// Props Drilling
-// App (status: false) => Profile: Context
 const App = () => {
   return (
-    <>
-      <AuthProvider>
-        <GalleryProvider>
-          <HeaderMain></HeaderMain>
-          <PhotoList></PhotoList>
-          <CardList></CardList>
-        </GalleryProvider>
-      </AuthProvider>
-    </>
+    <div>
+      <Routes>
+        <Route path="/" element={<Nav></Nav>}>
+          <Route path="/" element={<>HomePage</>}></Route>
+          <Route path="/blog" element={<BlogPage></BlogPage>}></Route>
+          <Route
+            path="/blog/:slug"
+            element={<BlogPageDetails></BlogPageDetails>}
+          ></Route>
+          <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
+        </Route>
+        <Route path="*" element={<>This is 404 page</>}></Route>
+      </Routes>
+    </div>
   );
 };
 
