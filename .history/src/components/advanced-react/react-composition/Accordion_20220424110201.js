@@ -1,0 +1,11 @@
+import React from "react";
+
+const Accordion = () => {
+  return (
+    <div>
+      <div className="header">Accordion Header</div>
+    </div>
+  );
+};
+
+export default Accordion;

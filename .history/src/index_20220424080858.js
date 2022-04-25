@@ -10,14 +10,15 @@ import { BrowserRouter } from "react-router-dom";
 //     <BrowserRouter>
 //       <App />
 //     </BrowserRouter>
+//     <App />
 //   // </React.StrictMode>,
 //   document.getElementById("root")
 // );
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   document.getElementById("root")
 );
 

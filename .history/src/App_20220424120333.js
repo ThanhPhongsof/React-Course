@@ -7,7 +7,7 @@ import Edittable from "./components/advanced-react/react-composition/Edittable";
 
 const App = () => {
   return (
-    <div className="p-10 w-full max-w-[600px] mx-auto">
+    <div className="p-10 w-full max-w-[600px] mx-auto ">
       {/* <Title>{() => <h1>hello form render props</h1>}</Title> */}
       {/* <FetchingData></FetchingData> */}
       {/* <HandleValue></HandleValue> */}

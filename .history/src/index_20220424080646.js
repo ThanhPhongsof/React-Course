@@ -1,23 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import * as react_dom from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.scss";
 import { BrowserRouter } from "react-router-dom";
 
-// ReactDOM.render(
-//   // <React.StrictMode>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//   // </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
 ReactDOM.render(
-  <BrowserRouter>
+  <React.StrictMode>
+    {/* <BrowserRouter>
+      <App />
+    </BrowserRouter> */}
     <App />
-  </BrowserRouter>,
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

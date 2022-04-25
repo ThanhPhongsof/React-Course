@@ -10,6 +10,7 @@ import { BrowserRouter } from "react-router-dom";
 //     <BrowserRouter>
 //       <App />
 //     </BrowserRouter>
+//     <App />
 //   // </React.StrictMode>,
 //   document.getElementById("root")
 // );
