@@ -3,16 +3,10 @@ import Counter from "./components/advanced-react/state-reducer/Counter";
 import useCounter from "./components/advanced-react/state-reducer/useCounter";
 
 const App = () => {
-  const { count, handleIncrement, handleDecrement } = useCounter({
-    initial: 0,
-  });
+  const { count } = useCounter();
   return (
     <div>
-      <Counter
-        count={count}
-        handleIncrement={handleIncrement}
-        handleDecrement={handleDecrement}
-      ></Counter>
+      <Counter count={count}></Counter>
     </div>
   );
 };

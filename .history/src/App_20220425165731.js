@@ -8,11 +8,7 @@ const App = () => {
   });
   return (
     <div>
-      <Counter
-        count={count}
-        handleIncrement={handleIncrement}
-        handleDecrement={handleDecrement}
-      ></Counter>
+      <Counter count={count}></Counter>
     </div>
   );
 };
