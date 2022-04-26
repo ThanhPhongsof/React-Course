@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Count from "./components/advanced-react/performance/Count";
 
 const App = () => {
@@ -10,8 +10,7 @@ const App = () => {
     setFilter("");
   }, [setFilter]);
 
-  // useMemo(() => value, [depenencies])
-  const data = useMemo(() => ({ success: false }), []);
+  const data = { success: false };
 
   return (
     <div>

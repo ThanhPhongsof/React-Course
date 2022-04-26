@@ -1,17 +1,12 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useState } from "react";
 import Count from "./components/advanced-react/performance/Count";
 
 const App = () => {
   const [filter, setFilter] = useState("");
 
-  // useCallback(() => (callback, [dependencies]);
-  // memorized
-  const calculate = useCallback(() => {
+  const calculate = () => {
     setFilter("");
-  }, [setFilter]);
-
-  // useMemo(() => value, [depenencies])
-  const data = useMemo(() => ({ success: false }), []);
+  };
 
   return (
     <div>
@@ -20,7 +15,7 @@ const App = () => {
         className="p-3 border border-gray-300 rounded"
         onChange={(e) => setFilter(e.target.value)}
       />
-      <Count calculate={calculate} data={data}></Count>
+      <Count onChange={() => calculate}></Count>
     </div>
   );
 };
