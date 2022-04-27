@@ -63,7 +63,7 @@ const FirebaseApp = () => {
 
     // Truy xuất 1 document realtime
     onSnapshot(docRefSingle).then((doc) => {
-      console.log(doc.id, doc.data());
+      // console.log(doc.id, doc.data());
     });
   }, []);
 
@@ -103,7 +103,7 @@ const FirebaseApp = () => {
 
   useEffect(() => {
     // Firestore queries
-    const q = query(colRef, orderBy("author"), limit(1));
+    const q = query(colRef, limit(1));
     onSnapshot(q, (snapshot) => {
       let posts = [];
       snapshot.docs.forEach((doc) => {

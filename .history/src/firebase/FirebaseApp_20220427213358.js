@@ -101,21 +101,6 @@ const FirebaseApp = () => {
     e.reset();
   };
 
-  useEffect(() => {
-    // Firestore queries
-    const q = query(colRef, orderBy("author"), limit(1));
-    onSnapshot(q, (snapshot) => {
-      let posts = [];
-      snapshot.docs.forEach((doc) => {
-        posts.push({
-          id: doc.id,
-          ...doc.data(),
-        });
-      });
-      console.log(posts);
-    });
-  }, []);
-
   return (
     <div className="p-10">
       <div className="w-full max-w-[500px] mx-auto shadow-lg p-5 mb-10">

@@ -7,11 +7,6 @@ import {
   onSnapshot,
   serverTimestamp,
   updateDoc,
-  getDoc,
-  where,
-  orderBy,
-  limit,
-  query,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "./firebase-config";
@@ -57,13 +52,8 @@ const FirebaseApp = () => {
 
     // Truy xuất 1 document
     const docRefSingle = doc(db, "posts", "WgsTgBKY0dsx1Zq75Big");
-    // getDoc(docRefSingle).then((doc) => {
-    //   console.log(doc.id, doc.data());
-    // });
-
-    // Truy xuất 1 document realtime
-    onSnapshot(docRefSingle).then((doc) => {
-      console.log(doc.id, doc.data());
+    getDoc(docRefSingle).then((doc) => {
+      console.log(doc.id, doc.data);
     });
   }, []);
 
@@ -100,21 +90,6 @@ const FirebaseApp = () => {
     console.log("success");
     e.reset();
   };
-
-  useEffect(() => {
-    // Firestore queries
-    const q = query(colRef, orderBy("author"), limit(1));
-    onSnapshot(q, (snapshot) => {
-      let posts = [];
-      snapshot.docs.forEach((doc) => {
-        posts.push({
-          id: doc.id,
-          ...doc.data(),
-        });
-      });
-      console.log(posts);
-    });
-  }, []);
 
   return (
     <div className="p-10">

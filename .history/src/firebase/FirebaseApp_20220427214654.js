@@ -103,16 +103,15 @@ const FirebaseApp = () => {
 
   useEffect(() => {
     // Firestore queries
-    const q = query(colRef, orderBy("author"), limit(1));
+    const q = query(colRef, limit(1));
     onSnapshot(q, (snapshot) => {
       let posts = [];
       snapshot.docs.forEach((doc) => {
         posts.push({
           id: doc.id,
-          ...doc.data(),
+          ...doc.data,
         });
       });
-      console.log(posts);
     });
   }, []);
 
