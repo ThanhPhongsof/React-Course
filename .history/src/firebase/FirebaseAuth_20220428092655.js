@@ -58,17 +58,13 @@ const FirebaseAuth = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const cred = await signInWithEmailAndPassword(
-        auth,
-        values.email,
-        values.password
-      );
-      setUserInfo(cred);
-      console.log("Login successfully");
-    } catch (error) {
-      console.log(error);
-    }
+    const cred = await signInWithEmailAndPassword(
+      auth,
+      values.email,
+      values.password
+    );
+    setUserInfo(cred);
+    console.log("Login successfully");
   };
 
   return (

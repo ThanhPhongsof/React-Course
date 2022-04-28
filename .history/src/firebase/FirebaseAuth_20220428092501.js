@@ -6,7 +6,6 @@ import {
   getAuth,
   onAuthStateChanged,
   updateProfile,
-  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth, db } from "./firebase-config";
 import { addDoc, collection } from "firebase/firestore";
@@ -56,19 +55,8 @@ const FirebaseAuth = () => {
     signOut(auth);
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      const cred = await signInWithEmailAndPassword(
-        auth,
-        values.email,
-        values.password
-      );
-      setUserInfo(cred);
-      console.log("Login successfully");
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (

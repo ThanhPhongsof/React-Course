@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import {
   createUserWithEmailAndPassword,
   SignInWithPassword,
@@ -6,7 +6,6 @@ import {
   getAuth,
   onAuthStateChanged,
   updateProfile,
-  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth, db } from "./firebase-config";
 import { addDoc, collection } from "firebase/firestore";
@@ -27,8 +26,7 @@ const FirebaseAuth = () => {
   const handleCreateUser = async (e) => {
     e.preventDefault();
     try {
-      // credentials
-      const cred = await createUserWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
         values.email,
         values.password
@@ -38,14 +36,14 @@ const FirebaseAuth = () => {
       await updateProfile(auth.currentUser, {
         displayName: "Phong",
       });
-      setUserInfo(cred);
+      setUserInfo(user);
 
       const userRef = collection(db, "users");
       addDoc(userRef, {
-        id: cred.user.uid,
+        id: user.user.uid,
         email: values.email,
         password: values.password,
-        displayName: userInfo?.displayName,
+        displayName: values.displayName,
       });
     } catch (err) {
       console.log(err);
@@ -56,23 +54,8 @@ const FirebaseAuth = () => {
     signOut(auth);
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const cred = await signInWithEmailAndPassword(
-        auth,
-        values.email,
-        values.password
-      );
-      setUserInfo(cred);
-      console.log("Login successfully");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
-    <Fragment>
+    <div className="p-10">
       <div className="w-full max-w-[500px] mx-auto shadow-lg p-5 mb-10">
         <form onSubmit={handleCreateUser}>
           <input
@@ -107,31 +90,7 @@ const FirebaseAuth = () => {
           </button>
         </div>
       </div>
-      <div className="w-full max-w-[500px] mx-auto shadow-lg p-5 mb-10">
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            name="email"
-            className="w-full p-3 mb-5 border border-gray-200 rounded outline-none focus:border-blue-500"
-            placeholder="Enter your email"
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="password"
-            className="w-full p-3 mb-5 border border-gray-200 rounded outline-none focus:border-blue-500"
-            placeholder="Enter your password"
-            onChange={handleInputChange}
-          />
-          <button
-            type="submit"
-            className="w-full p-3 text-sm font-semibold text-white bg-green-500 rounded-lg"
-          >
-            Login
-          </button>
-        </form>
-      </div>
-    </Fragment>
+    </div>
   );
 };
 
